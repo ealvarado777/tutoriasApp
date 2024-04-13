@@ -1,0 +1,15 @@
+[
+  {
+    "iconoLeading":"ac_unit",
+    "iconoTrailing":"flecha",
+    "opcion":"Prueba",
+    "ruta":"HolaMundo"
+  },
+  {
+    "iconoLeading":"ac_unit",
+    "iconoTrailing":"flecha",
+    "opcion":"Clientes",
+    "ruta":"Clientes"
+  }
+
+]
