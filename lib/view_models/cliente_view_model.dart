@@ -29,7 +29,8 @@ class ClienteViewModel extends ChangeNotifier{
        copiaclientes=c;
        notifyListeners();
   }
-  Future<void> consultarClientes({required BuildContext contextA}) async {
+
+  Future<void> consultarClientes({required BuildContext contextA})async{
     LoadingOverlay loadingOverlay = LoadingOverlay();
     loadingOverlay.show(contextA);
     final Map<String, dynamic> body = await ClienteService.consultarClientes();
@@ -37,12 +38,13 @@ class ClienteViewModel extends ChangeNotifier{
     bool success = body["success"];
     dynamic response = body["body"];
 
-    if (!success && response.runtimeType == String) {
+    if(!success && response.runtimeType == String){
       ToastMsjWidget.displayMotionToast(contextA,
           mensaje: response.toString(),
           tiempoespera: 5,
           type: ToastType.error,
-          onChange: () {});
+          onChange:(){});
+      notifyListeners();
       return;
     }
 
@@ -58,6 +60,7 @@ class ClienteViewModel extends ChangeNotifier{
           tiempoespera: 5,
           type: ToastType.error,
           onChange: () {});
+      notifyListeners();
       return;
     }
     clientes = response;
@@ -65,6 +68,7 @@ class ClienteViewModel extends ChangeNotifier{
     copiaclientes = List<Map<String, dynamic>>.from(clientes);
     notifyListeners();
   }
+
 
   /*Future<void>consultarClientes({required BuildContext contextA})async{
 

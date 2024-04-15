@@ -13,7 +13,7 @@ class ClienteMap {
       dataConverter.forEach((data) {
         Map<String, dynamic> mapaData = {
           "id": data['id'] ?? "",
-          "nombres": data['nombre'] ?? "",
+          "nombres": data['nombres'] ?? "",
           "apellidos": data["apellidos"] ?? "",
           "tipoIdentificacion": data["tipoIdentificacion"] ?? "",
           "numIdentificacion": data["numIdentificacion"] ?? ""
